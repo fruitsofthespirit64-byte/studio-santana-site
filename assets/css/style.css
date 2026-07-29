@@ -1,0 +1,648 @@
+/* ==========================================================================
+   Studio Santana — palette sampled from the logo (sage green, blush, gold, cream)
+   ========================================================================== */
+
+:root {
+    --cream: #fdf6ee;
+    --cream-soft: #fbeee0;
+    --white: #ffffff;
+    --sage: #7d8063;
+    --sage-dark: #454833;
+    --sage-light: #a3a687;
+    --blush: #e3b7a0;
+    --blush-soft: #f3ded1;
+    --gold: #c9a05a;
+    --gold-soft: #e6cd9f;
+    --shadow: rgba(69, 72, 51, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background: var(--cream);
+    color: var(--sage-dark);
+    padding-top: 128px;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Playfair Display", "Georgia", serif;
+    margin: 0 0 12px;
+    color: var(--sage-dark);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.script {
+    font-family: "Dancing Script", cursive;
+}
+
+.section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 24px;
+}
+
+.section > h2 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 8px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--sage);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+/* ---------------------------------- Header ---------------------------------- */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(253, 246, 238, 0.96);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--gold-soft);
+}
+
+.header-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 24px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.brand-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--sage-dark);
+}
+
+.brand-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    flex: 1;
+    border: 1px solid var(--gold-soft);
+    border-right: none;
+    border-radius: 999px 0 0 999px;
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--sage-dark);
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: var(--sage-light);
+}
+
+.search-bar button {
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--white);
+    border-radius: 0 999px 999px 0;
+    padding: 0 18px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.icon-btn {
+    position: relative;
+    border: 1px solid var(--gold-soft);
+    background: var(--white);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sage-dark);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--blush);
+    color: var(--sage-dark);
+    font-size: 0.62rem;
+    font-weight: 700;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+}
+
+.nav-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--sage-dark);
+}
+
+/* ---------------------------------- Nav / dropdowns ---------------------------------- */
+
+.main-nav {
+    border-top: 1px solid var(--blush-soft);
+}
+
+.main-nav ul {
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px;
+}
+
+.main-nav > ul > li {
+    position: relative;
+}
+
+.main-nav a,
+.dropdown-toggle {
+    display: block;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.main-nav a:hover,
+.dropdown-toggle:hover,
+.dropdown.open .dropdown-toggle {
+    color: var(--gold);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    border: 1px solid var(--gold-soft);
+    border-radius: 14px;
+    box-shadow: 0 16px 40px var(--shadow);
+    padding: 14px;
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 50;
+}
+
+.dropdown-menu a {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background: var(--cream-soft);
+    color: var(--gold);
+}
+
+.dropdown.open .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu--wide {
+    display: none;
+    flex-direction: row;
+    gap: 28px;
+    min-width: 560px;
+    padding: 20px 24px;
+}
+
+.dropdown.open .dropdown-menu--wide {
+    display: flex;
+}
+
+.season-col h4 {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+
+.season-col a {
+    padding: 5px 8px;
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------- Hero ---------------------------------- */
+
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px 20px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-copy {
+    flex: 1;
+}
+
+.hero-copy .script {
+    color: var(--gold);
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.hero-copy h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+}
+
+.hero-copy p {
+    max-width: 480px;
+    line-height: 1.7;
+    color: var(--sage);
+    margin-bottom: 24px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: min(100%, 400px);
+    filter: drop-shadow(0 22px 34px var(--shadow));
+}
+
+.pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.pill {
+    background: var(--cream-soft);
+    color: var(--sage-dark);
+    border: 1px solid var(--gold-soft);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: 0 10px 24px var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--sage);
+    color: var(--sage-dark);
+    box-shadow: none;
+    margin-left: 12px;
+}
+
+/* ---------------------------------- Quick links (category chips) ---------------------------------- */
+
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 8px 24px 64px;
+}
+
+.quick-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--gold-soft);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quick-link:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 22px var(--shadow);
+}
+
+/* ---------------------------------- Breadcrumb ---------------------------------- */
+
+.breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 22px 24px 0;
+    font-size: 0.85rem;
+    color: var(--sage);
+}
+
+.breadcrumb a {
+    font-weight: 600;
+    color: var(--sage);
+}
+
+.breadcrumb a:hover {
+    color: var(--gold);
+}
+
+/* ---------------------------------- Sub-page hero (season / holiday) ---------------------------------- */
+
+.page-hero {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 36px 24px 12px;
+}
+
+.page-hero .script {
+    color: var(--gold);
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.page-hero h1 {
+    font-size: 2.4rem;
+}
+
+.page-hero p {
+    color: var(--sage);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 20px;
+}
+
+.holiday-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 24px 90px;
+}
+
+.holiday-link {
+    background: var(--white);
+    border: 1px solid var(--gold-soft);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.holiday-link:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 14px 28px var(--shadow);
+}
+
+.badge-tag {
+    display: inline-block;
+    background: var(--cream-soft);
+    border: 1px solid var(--gold-soft);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+}
+
+.coming-soon {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 24px 110px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: 600;
+    color: var(--sage);
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+/* ---------------------------------- Footer ---------------------------------- */
+
+.site-footer {
+    background: var(--cream-soft);
+    border-top: 1px solid var(--gold-soft);
+    padding: 40px 24px 24px;
+    text-align: center;
+}
+
+.site-footer .script {
+    color: var(--gold);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--sage-dark);
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    font-size: 0.78rem;
+    color: var(--sage);
+    margin-top: 16px;
+}
+
+/* ---------------------------------- Responsive ---------------------------------- */
+
+@media (max-width: 860px) {
+    body {
+        padding-top: 68px;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        height: calc(100vh - 68px);
+        background: var(--cream);
+        overflow-y: auto;
+    }
+
+    .main-nav.open {
+        display: block;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 10px 20px 40px;
+        gap: 0;
+    }
+
+    .main-nav a,
+    .dropdown-toggle {
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--blush-soft);
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown-menu,
+    .dropdown-menu--wide {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        min-width: 0;
+        width: 100%;
+        padding: 0 0 10px 14px;
+        flex-direction: column !important;
+        gap: 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-copy p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pills {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-outline {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
