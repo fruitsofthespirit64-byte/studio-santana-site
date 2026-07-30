@@ -618,6 +618,22 @@ a {
     margin-top: 16px;
 }
 
+.credit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    color: var(--sage);
+    margin-top: 8px;
+}
+
+.credit-icon {
+    width: 22px;
+    height: auto;
+    opacity: 0.9;
+}
+
 /* ---------------------------------- Responsive ---------------------------------- */
 
 @media (max-width: 860px) {
