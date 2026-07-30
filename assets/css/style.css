@@ -157,7 +157,9 @@ a {
     border-radius: 0 999px 999px 0;
     padding: 0 18px;
     cursor: pointer;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-icons {
@@ -376,45 +378,6 @@ a {
     transform: translateY(-2px);
 }
 
-.btn-outline {
-    background: transparent;
-    border: 1.5px solid var(--sage);
-    color: var(--sage-dark);
-    box-shadow: none;
-    margin-left: 12px;
-}
-
-/* ---------------------------------- Quick links (category chips) ---------------------------------- */
-
-.quick-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 8px 24px 64px;
-}
-
-.quick-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--white);
-    border: 1px solid var(--gold-soft);
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-}
-
-.quick-link:hover {
-    transform: translateY(-2px);
-    border-color: var(--gold);
-    box-shadow: 0 10px 22px var(--shadow);
-}
-
 /* ---------------------------------- Breadcrumb ---------------------------------- */
 
 .breadcrumb {
@@ -484,6 +447,33 @@ a {
     transform: translateY(-3px);
     border-color: var(--gold);
     box-shadow: 0 14px 28px var(--shadow);
+}
+
+.season-group {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 32px 24px;
+    border-top: 1px solid var(--blush-soft);
+}
+
+.season-group:first-of-type {
+    border-top: none;
+}
+
+.season-group h2 a:hover {
+    color: var(--gold);
+}
+
+.season-group p {
+    color: var(--sage);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto 18px;
+}
+
+.season-group .holiday-links {
+    padding: 0;
 }
 
 .badge-tag {
@@ -569,8 +559,23 @@ a {
         display: none;
     }
 
+    .brand-logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .brand-name {
+        font-size: 1.5rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.62rem;
+    }
+
     .nav-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .main-nav {
@@ -626,9 +631,3 @@ a {
     }
 }
 
-@media (max-width: 480px) {
-    .btn-outline {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
