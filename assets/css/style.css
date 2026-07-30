@@ -101,8 +101,8 @@ a {
 }
 
 .brand-logo {
-    width: 60px;
-    height: 60px;
+    width: 92px;
+    height: 92px;
     object-fit: contain;
 }
 
@@ -113,8 +113,8 @@ a {
 }
 
 .brand-name {
-    font-family: "Playfair Display", serif;
-    font-size: 1.3rem;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.9rem;
     font-weight: 700;
     color: var(--sage-dark);
 }
@@ -246,6 +246,13 @@ a {
     font-family: inherit;
 }
 
+.main-nav > ul > li > a,
+.main-nav > ul > li > .dropdown-toggle {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
 .main-nav a:hover,
 .dropdown-toggle:hover,
 .dropdown.open .dropdown-toggle {
@@ -352,23 +359,6 @@ a {
 .hero-image img {
     width: min(100%, 400px);
     filter: drop-shadow(0 22px 34px var(--shadow));
-}
-
-.pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 26px;
-}
-
-.pill {
-    background: var(--cream-soft);
-    color: var(--sage-dark);
-    border: 1px solid var(--gold-soft);
-    padding: 7px 14px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
 }
 
 .btn {
@@ -633,10 +623,6 @@ a {
     .hero-copy p {
         margin-left: auto;
         margin-right: auto;
-    }
-
-    .pills {
-        justify-content: center;
     }
 }
 
