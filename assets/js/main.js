@@ -34,4 +34,35 @@ document.addEventListener("DOMContentLoaded", () => {
             mainNav.classList.remove("open");
         });
     });
+
+    const orderForm = document.querySelector("#custom-order-form");
+
+    if (orderForm) {
+        orderForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = orderForm.name.value.trim();
+            const email = orderForm.email.value.trim();
+            const category = orderForm.category.value;
+            const occasion = orderForm.occasion.value.trim();
+            const details = orderForm.details.value.trim();
+
+            const subject = `Custom Order Request from ${name}`;
+            const bodyLines = [
+                `Name: ${name}`,
+                `Email: ${email}`,
+                `Category: ${category}`,
+                `Occasion/Season: ${occasion || "N/A"}`,
+                "",
+                "Details:",
+                details,
+            ];
+
+            const mailtoUrl =
+                `mailto:ryinbolt@yahoo.com?subject=${encodeURIComponent(subject)}` +
+                `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+            window.location.href = mailtoUrl;
+        });
+    }
 });

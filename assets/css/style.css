@@ -29,7 +29,7 @@ body {
     font-family: "Poppins", "Segoe UI", sans-serif;
     background: var(--cream);
     color: var(--sage-dark);
-    padding-top: 128px;
+    padding-top: 176px;
 }
 
 img {
@@ -378,6 +378,14 @@ a {
     transform: translateY(-2px);
 }
 
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--sage);
+    color: var(--sage-dark);
+    box-shadow: none;
+    margin-left: 12px;
+}
+
 /* ---------------------------------- Breadcrumb ---------------------------------- */
 
 .breadcrumb {
@@ -508,6 +516,68 @@ a {
     color: var(--gold);
 }
 
+/* ---------------------------------- Custom order form ---------------------------------- */
+
+.order-form-wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 10px 24px 100px;
+}
+
+.order-form {
+    background: var(--white);
+    border: 1px solid var(--gold-soft);
+    border-radius: 20px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-row label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--sage-dark);
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    border: 1px solid var(--gold-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--sage-dark);
+    background: var(--cream);
+    outline: none;
+    resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    border-color: var(--gold);
+}
+
+.order-form .btn {
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: var(--sage);
+    margin: -8px 0 0;
+}
+
 /* ---------------------------------- Footer ---------------------------------- */
 
 .site-footer {
@@ -552,7 +622,7 @@ a {
 
 @media (max-width: 860px) {
     body {
-        padding-top: 68px;
+        padding-top: 84px;
     }
 
     .search-bar {
@@ -581,10 +651,10 @@ a {
     .main-nav {
         display: none;
         position: fixed;
-        top: 68px;
+        top: 84px;
         left: 0;
         right: 0;
-        height: calc(100vh - 68px);
+        height: calc(100vh - 84px);
         background: var(--cream);
         overflow-y: auto;
     }
@@ -628,6 +698,11 @@ a {
     .hero-copy p {
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+        margin-top: 10px;
     }
 }
 

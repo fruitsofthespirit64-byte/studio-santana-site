@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Santana | Handmade with Heart, Created to Inspire</title>
-    <link rel="icon" href="assets/Santana_logo.png">
+    <title>Custom Orders | Studio Santana</title>
+    <link rel="icon" href="assets/Santana_logo_transparent.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body id="top">
+<body>
 
     <header class="site-header">
         <div class="header-top">
@@ -93,17 +93,52 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-copy">
-                <h1>Handmade with heart, created to inspire.</h1>
-                <p>Cozy, one-of-a-kind craft pieces made for life's little moments &mdash; from everyday tumblers to
-                    holiday keepsakes, every item is stitched, painted, and packed with love.</p>
-                <a class="btn" href="seasons/index.html">Shop by Season</a>
-                <a class="btn btn-outline" href="custom-orders.html">Custom Orders</a>
-            </div>
-            <div class="hero-image">
-                <img src="assets/Santana_logo_transparent.png" alt="Studio Santana handmade goods illustration">
-            </div>
+        <p class="breadcrumb"><a href="index.html">Home</a> / Custom Orders</p>
+
+        <section class="page-hero">
+            <span class="script">Made Just for You</span>
+            <h1>Custom Orders</h1>
+            <p>Have something special in mind? Tell us about it below and we'll follow up by email to bring your
+                idea to life &mdash; handmade, just for you.</p>
+        </section>
+
+        <section class="order-form-wrap">
+            <form class="order-form" id="custom-order-form">
+                <div class="form-row">
+                    <label for="order-name">Name</label>
+                    <input type="text" id="order-name" name="name" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="order-email">Email</label>
+                    <input type="email" id="order-email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="order-category">Category</label>
+                    <select id="order-category" name="category">
+                        <option value="Tumbler">Tumbler</option>
+                        <option value="Quilt">Quilt</option>
+                        <option value="Dog Bandanna">Dog Bandanna</option>
+                        <option value="Keychain">Keychain</option>
+                        <option value="Something else">Something else</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="order-occasion">Occasion or Season (optional)</label>
+                    <input type="text" id="order-occasion" name="occasion" placeholder="e.g. Christmas gift, birthday, just because">
+                </div>
+
+                <div class="form-row">
+                    <label for="order-details">Tell us about your idea</label>
+                    <textarea id="order-details" name="details" rows="6" required placeholder="Colors, sizes, names or initials, inspiration photos you'll send over&hellip; anything that helps bring your vision to life."></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send Request</button>
+                <p class="form-note">This opens your email app with your request filled in, ready to send to
+                    ryinbolt@yahoo.com.</p>
+            </form>
         </section>
     </main>
 
