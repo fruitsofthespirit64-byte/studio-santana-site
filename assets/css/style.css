@@ -375,13 +375,11 @@ a {
 }
 
 .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+    flex: 0 0 270px;
 }
 
 .about-image img {
-    width: min(100%, 360px);
+    width: 100%;
     border-radius: 24px;
     box-shadow: 0 22px 44px var(--shadow);
 }
@@ -413,6 +411,22 @@ a {
     font-weight: 700;
     color: var(--gold);
     margin: -4px 0 16px;
+}
+
+.about-bio {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10px 24px 100px;
+}
+
+.about-bio p {
+    line-height: 1.8;
+    color: var(--sage);
+    margin-bottom: 22px;
+}
+
+.about-bio p:last-child {
+    margin-bottom: 0;
 }
 
 .btn {
@@ -762,6 +776,12 @@ a {
     .about-section {
         flex-direction: column;
         text-align: center;
+    }
+
+    .about-image {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 270px;
     }
 
     .hero-copy p,
