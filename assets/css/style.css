@@ -366,67 +366,82 @@ a {
 /* ---------------------------------- Our Story ---------------------------------- */
 
 .about-section {
-    max-width: 1100px;
+    max-width: 680px;
     margin: 0 auto;
     padding: 20px 24px 100px;
-    display: flex;
-    align-items: center;
-    gap: 48px;
+    text-align: center;
 }
 
-.about-image {
-    flex: 0 0 270px;
+.about-heading {
+    margin-bottom: 32px;
 }
 
-.about-image img {
-    width: 100%;
-    border-radius: 24px;
-    box-shadow: 0 22px 44px var(--shadow);
-}
-
-.about-copy {
-    flex: 1;
-}
-
-.about-copy .script {
+.about-heading .script {
     color: var(--gold);
     font-size: 1.4rem;
     display: block;
     margin-bottom: 4px;
 }
 
-.about-copy h2 {
-    font-size: 2rem;
+.about-heading h2 {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+.about-heading .artist-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.about-image {
+    margin: 0 auto 40px;
+}
+
+.about-image img {
+    width: min(100%, 340px);
+    border-radius: 24px;
+    box-shadow: 0 22px 44px var(--shadow);
+}
+
+.about-copy {
+    text-align: left;
 }
 
 .about-copy p {
-    max-width: 460px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--sage);
+    margin: 0 0 20px;
 }
 
-.about-copy .artist-name {
-    font-family: "Dancing Script", cursive;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin: -4px 0 16px;
+.about-copy p:last-child {
+    margin-bottom: 0;
 }
 
-.about-bio {
-    max-width: 720px;
+.policy-content {
+    max-width: 680px;
     margin: 0 auto;
     padding: 10px 24px 100px;
 }
 
-.about-bio p {
-    line-height: 1.8;
-    color: var(--sage);
-    margin-bottom: 22px;
+.policy-content h3 {
+    margin: 32px 0 8px;
 }
 
-.about-bio p:last-child {
-    margin-bottom: 0;
+.policy-content h3:first-child {
+    margin-top: 0;
+}
+
+.policy-content p {
+    line-height: 1.8;
+    color: var(--sage);
+    margin: 0;
+}
+
+.policy-content a {
+    color: var(--gold);
+    font-weight: 600;
 }
 
 .btn {
@@ -772,20 +787,12 @@ a {
         gap: 0;
     }
 
-    .hero,
-    .about-section {
+    .hero {
         flex-direction: column;
         text-align: center;
     }
 
-    .about-image {
-        flex-basis: auto;
-        width: 100%;
-        max-width: 270px;
-    }
-
-    .hero-copy p,
-    .about-copy p {
+    .hero-copy p {
         margin-left: auto;
         margin-right: auto;
     }

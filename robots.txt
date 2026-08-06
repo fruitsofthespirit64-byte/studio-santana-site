@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /favorites.html
+
+Sitemap: https://studio-santana.com/sitemap.xml

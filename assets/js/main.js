@@ -1,4 +1,82 @@
+const SEARCH_INDEX = [
+    { title: "Tumblers", url: "/categories/tumblers.html", keywords: ["tumbler", "tumblers", "cup", "cups"] },
+    { title: "Quilts", url: "/categories/quilts.html", keywords: ["quilt", "quilts", "blanket"] },
+    { title: "Dog Bandannas", url: "/categories/dog-bandannas.html", keywords: ["dog", "bandanna", "bandana", "pet"] },
+    { title: "Keychains", url: "/categories/keychains.html", keywords: ["keychain", "keychains", "key"] },
+    { title: "Shop by Category", url: "/categories/index.html", keywords: ["shop", "category", "categories", "products"] },
+    { title: "Shop by Season", url: "/seasons/index.html", keywords: ["season", "seasons", "holiday", "holidays"] },
+    { title: "Spring", url: "/seasons/spring.html", keywords: ["spring"] },
+    { title: "Easter", url: "/seasons/spring/easter.html", keywords: ["easter"] },
+    { title: "Mother's Day", url: "/seasons/spring/mothers-day.html", keywords: ["mother", "mom", "mothers day"] },
+    { title: "St. Patrick's Day", url: "/seasons/spring/st-patricks-day.html", keywords: ["st patrick", "patricks", "irish", "shamrock"] },
+    { title: "Cinco de Mayo", url: "/seasons/spring/cinco-de-mayo.html", keywords: ["cinco de mayo", "cinco"] },
+    { title: "Summer", url: "/seasons/summer.html", keywords: ["summer"] },
+    { title: "4th of July", url: "/seasons/summer/4th-of-july.html", keywords: ["4th of july", "july 4", "independence"] },
+    { title: "Father's Day", url: "/seasons/summer/fathers-day.html", keywords: ["father", "dad", "fathers day"] },
+    { title: "Beach Days", url: "/seasons/summer/beach-days.html", keywords: ["beach"] },
+    { title: "Fall", url: "/seasons/fall.html", keywords: ["fall", "autumn"] },
+    { title: "Halloween", url: "/seasons/fall/halloween.html", keywords: ["halloween", "spooky"] },
+    { title: "Thanksgiving", url: "/seasons/fall/thanksgiving.html", keywords: ["thanksgiving", "turkey"] },
+    { title: "Back to School", url: "/seasons/fall/back-to-school.html", keywords: ["school", "back to school"] },
+    { title: "Winter", url: "/seasons/winter.html", keywords: ["winter"] },
+    { title: "Christmas", url: "/seasons/winter/christmas.html", keywords: ["christmas", "xmas"] },
+    { title: "Hanukkah", url: "/seasons/winter/hanukkah.html", keywords: ["hanukkah", "chanukah"] },
+    { title: "New Year's", url: "/seasons/winter/new-years.html", keywords: ["new year"] },
+    { title: "Valentine's Day", url: "/seasons/winter/valentines-day.html", keywords: ["valentine"] },
+    { title: "Custom Orders", url: "/custom-orders.html", keywords: ["custom", "personalized", "request", "order"] },
+    { title: "Our Story", url: "/our-story.html", keywords: ["about", "story", "ryin", "maker", "santana"] },
+];
+
+function findBestSearchMatch(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) return null;
+
+    let best = null;
+    let bestScore = 0;
+
+    SEARCH_INDEX.forEach((entry) => {
+        let score = 0;
+        const title = entry.title.toLowerCase();
+
+        if (title === q) score = 100;
+        else if (title.includes(q) || q.includes(title)) score = 60;
+
+        entry.keywords.forEach((kw) => {
+            if (kw === q) score = Math.max(score, 90);
+            else if (kw.includes(q) || q.includes(kw)) score = Math.max(score, 50);
+        });
+
+        if (score > bestScore) {
+            bestScore = score;
+            best = entry;
+        }
+    });
+
+    return bestScore > 0 ? best : null;
+}
+
+function getFavorites() {
+    try {
+        return JSON.parse(localStorage.getItem("santana_favorites") || "[]");
+    } catch (e) {
+        return [];
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".search-bar").forEach((form) => {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const input = form.querySelector("input[type='search']");
+            const match = findBestSearchMatch(input.value);
+            window.location.href = match ? match.url : "/categories/index.html";
+        });
+    });
+
+    document.querySelectorAll(".favorites-link .badge").forEach((badge) => {
+        badge.textContent = getFavorites().length;
+    });
+
     const navToggle = document.querySelector(".nav-toggle");
     const mainNav = document.querySelector(".main-nav");
 
