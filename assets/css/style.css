@@ -586,6 +586,14 @@ a {
     padding: 40px 24px 110px;
 }
 
+.section-heading {
+    text-align: center;
+    font-size: 1.6rem;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 24px;
+}
+
 .product-grid {
     max-width: 1200px;
     margin: 0 auto;
