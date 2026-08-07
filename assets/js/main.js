@@ -58,12 +58,96 @@ function findBestSearchMatch(query) {
     return bestScore > 0 ? best : null;
 }
 
+const HEART_SVG =
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"></path></svg>';
+
 function getFavorites() {
     try {
         return JSON.parse(localStorage.getItem("santana_favorites") || "[]");
     } catch (e) {
         return [];
     }
+}
+
+function saveFavorites(list) {
+    localStorage.setItem("santana_favorites", JSON.stringify(list));
+}
+
+function toggleFavorite(data) {
+    const favorites = getFavorites();
+    const index = favorites.findIndex((item) => item.id === data.id);
+
+    if (index === -1) {
+        favorites.push(data);
+    } else {
+        favorites.splice(index, 1);
+    }
+
+    saveFavorites(favorites);
+    renderFavoritesUI();
+}
+
+function attachFavoriteListeners(root) {
+    root.querySelectorAll(".favorite-toggle").forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleFavorite({
+                id: btn.dataset.id,
+                name: btn.dataset.name,
+                image: btn.dataset.image,
+                category: btn.dataset.category,
+            });
+        });
+    });
+}
+
+function renderFavoritesUI() {
+    const favorites = getFavorites();
+
+    document.querySelectorAll(".favorites-link .badge").forEach((badge) => {
+        badge.textContent = favorites.length;
+    });
+
+    document.querySelectorAll(".favorite-toggle").forEach((btn) => {
+        const isFav = favorites.some((item) => item.id === btn.dataset.id);
+        btn.classList.toggle("is-favorited", isFav);
+        btn.setAttribute("aria-pressed", isFav);
+    });
+
+    const list = document.querySelector("#favorites-list");
+    const empty = document.querySelector("#favorites-empty");
+    if (!list || !empty) return;
+
+    if (favorites.length === 0) {
+        list.innerHTML = "";
+        empty.style.display = "";
+        return;
+    }
+
+    empty.style.display = "none";
+    list.innerHTML = favorites
+        .map(
+            (item) => `
+            <article class="product-card">
+                <div class="product-card-media">
+                    <a href="${item.id}">
+                        <img src="${item.image}" alt="${item.name}">
+                    </a>
+                    <button class="favorite-toggle is-favorited" type="button" aria-label="Remove from favorites"
+                        data-id="${item.id}" data-name="${item.name}" data-image="${item.image}" data-category="${item.category}">
+                        ${HEART_SVG}
+                    </button>
+                </div>
+                <a href="${item.id}" class="product-card-body">
+                    <h3>${item.name}</h3>
+                    <p class="product-price">${item.category}</p>
+                </a>
+            </article>`
+        )
+        .join("");
+
+    attachFavoriteListeners(list);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -76,9 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    document.querySelectorAll(".favorites-link .badge").forEach((badge) => {
-        badge.textContent = getFavorites().length;
-    });
+    attachFavoriteListeners(document);
+    renderFavoritesUI();
 
     const navToggle = document.querySelector(".nav-toggle");
     const mainNav = document.querySelector(".main-nav");
