@@ -439,6 +439,10 @@ a {
     margin: 0;
 }
 
+.policy-content p + p {
+    margin-top: 16px;
+}
+
 .policy-content a {
     color: var(--gold);
     font-weight: 600;
