@@ -882,6 +882,17 @@ a {
     color: var(--gold);
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links .icon-btn {
+    color: var(--sage-dark);
+}
+
 .copyright {
     font-size: 0.78rem;
     color: var(--sage);
