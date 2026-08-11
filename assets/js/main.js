@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
 
             const mailtoUrl =
-                `mailto:ryinbolt@yahoo.com?subject=${encodeURIComponent(subject)}` +
+                `mailto:studiosantana@yahoo.com?subject=${encodeURIComponent(subject)}` +
                 `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
             window.location.href = mailtoUrl;
