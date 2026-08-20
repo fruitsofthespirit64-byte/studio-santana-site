@@ -292,32 +292,6 @@ a {
     display: flex;
 }
 
-.dropdown-menu--wide {
-    display: none;
-    flex-direction: row;
-    gap: 28px;
-    min-width: 560px;
-    padding: 20px 24px;
-}
-
-.dropdown.open .dropdown-menu--wide {
-    display: flex;
-}
-
-.season-col h4 {
-    font-family: "Poppins", sans-serif;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gold);
-    margin-bottom: 6px;
-}
-
-.season-col a {
-    padding: 5px 8px;
-    font-size: 0.9rem;
-}
-
 /* ---------------------------------- Hero ---------------------------------- */
 
 .hero {
@@ -540,33 +514,6 @@ a {
     transform: translateY(-3px);
     border-color: var(--gold);
     box-shadow: 0 14px 28px var(--shadow);
-}
-
-.season-group {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 32px 24px;
-    border-top: 1px solid var(--blush-soft);
-}
-
-.season-group:first-of-type {
-    border-top: none;
-}
-
-.season-group h2 a:hover {
-    color: var(--gold);
-}
-
-.season-group p {
-    color: var(--sage);
-    line-height: 1.6;
-    max-width: 520px;
-    margin: 0 auto 18px;
-}
-
-.season-group .holiday-links {
-    padding: 0;
 }
 
 .badge-tag {
@@ -910,8 +857,7 @@ a {
         text-align: left;
     }
 
-    .dropdown-menu,
-    .dropdown-menu--wide {
+    .dropdown-menu {
         position: static;
         box-shadow: none;
         border: none;
