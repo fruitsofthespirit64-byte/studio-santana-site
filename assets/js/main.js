@@ -4,8 +4,8 @@ const SEARCH_INDEX = [
     { title: "Dog Bandannas", url: "/categories/dog-bandannas.html", keywords: ["dog", "bandanna", "bandana", "pet"] },
     { title: "Keychains", url: "/categories/keychains.html", keywords: ["keychain", "keychains", "key"] },
     { title: "Pens", url: "/categories/pens.html", keywords: ["pen", "pens", "glitter pen"] },
-    { title: "Ornaments", url: "/categories/ornaments.html", keywords: ["ornament", "ornaments", "christmas ornament"] },
-    { title: "Door Hangers", url: "/categories/door-hangers.html", keywords: ["door hanger", "door hangers", "wreath"] },
+    { title: "Bookish Collection", url: "/categories/bookish-collection.html", keywords: ["book", "books", "bookish", "reader"] },
+    { title: "Studio Sale", url: "/categories/studio-sale.html", keywords: ["sale", "discount", "clearance"] },
     { title: "Shop by Category", url: "/categories/index.html", keywords: ["shop", "category", "categories", "products"] },
     { title: "Shop by Season", url: "/seasons/index.html", keywords: ["season", "seasons", "holiday", "holidays"] },
     { title: "Spring", url: "/seasons/spring.html", keywords: ["spring"] },
@@ -26,8 +26,10 @@ const SEARCH_INDEX = [
     { title: "Hanukkah", url: "/seasons/winter/hanukkah.html", keywords: ["hanukkah", "chanukah"] },
     { title: "New Year's", url: "/seasons/winter/new-years.html", keywords: ["new year"] },
     { title: "Valentine's Day", url: "/seasons/winter/valentines-day.html", keywords: ["valentine"] },
-    { title: "Custom Orders", url: "/custom-orders.html", keywords: ["custom", "personalized", "request", "order"] },
+    { title: "Studio Archive", url: "/studio-archive.html", keywords: ["archive", "past", "sold", "inspiration"] },
     { title: "Our Story", url: "/our-story.html", keywords: ["about", "story", "ryin", "maker", "santana"] },
+    { title: "Shipping & Returns", url: "/shipping-returns.html", keywords: ["shipping", "returns", "policy", "pickup"] },
+    { title: "Privacy Policy", url: "/privacy-policy.html", keywords: ["privacy", "policy", "data"] },
 ];
 
 function findBestSearchMatch(query) {
@@ -198,35 +200,4 @@ document.addEventListener("DOMContentLoaded", () => {
             mainNav.classList.remove("open");
         });
     });
-
-    const orderForm = document.querySelector("#custom-order-form");
-
-    if (orderForm) {
-        orderForm.addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const name = orderForm.name.value.trim();
-            const email = orderForm.email.value.trim();
-            const category = orderForm.category.value;
-            const occasion = orderForm.occasion.value.trim();
-            const details = orderForm.details.value.trim();
-
-            const subject = `Custom Order Request from ${name}`;
-            const bodyLines = [
-                `Name: ${name}`,
-                `Email: ${email}`,
-                `Category: ${category}`,
-                `Occasion/Season: ${occasion || "N/A"}`,
-                "",
-                "Details:",
-                details,
-            ];
-
-            const mailtoUrl =
-                `mailto:studiosantana@yahoo.com?subject=${encodeURIComponent(subject)}` +
-                `&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-
-            window.location.href = mailtoUrl;
-        });
-    }
 });
