@@ -827,10 +827,21 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
     font-size: 0.74rem;
     color: var(--sage);
     margin-top: 8px;
+}
+
+.credit a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.credit a:hover {
+    color: var(--gold);
 }
 
 .credit-icon {
