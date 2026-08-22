@@ -1,6 +1,7 @@
 const SEARCH_INDEX = [
     { title: "Tumblers", url: "/categories/tumblers.html", keywords: ["tumbler", "tumblers", "cup", "cups"] },
     { title: "Quilts", url: "/categories/quilts.html", keywords: ["quilt", "quilts", "blanket"] },
+    { title: "Quilted Home", url: "/categories/quilted-home.html", keywords: ["quilted", "coaster", "coasters", "table topper", "runner", "bowl holder", "home"] },
     { title: "Dog Bandannas", url: "/categories/dog-bandannas.html", keywords: ["dog", "bandanna", "bandana", "pet"] },
     { title: "Keychains", url: "/categories/keychains.html", keywords: ["keychain", "keychains", "key"] },
     { title: "Pens", url: "/categories/pens.html", keywords: ["pen", "pens", "glitter pen"] },
