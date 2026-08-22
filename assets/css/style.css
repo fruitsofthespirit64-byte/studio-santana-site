@@ -738,6 +738,13 @@ a {
     margin-bottom: 22px;
 }
 
+.product-description {
+    color: var(--sage);
+    line-height: 1.6;
+    margin: 0 0 22px;
+    max-width: 420px;
+}
+
 .product-detail-info .back-link {
     display: block;
     margin-top: 16px;
