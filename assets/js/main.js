@@ -151,6 +151,17 @@ document.addEventListener("DOMContentLoaded", () => {
     attachFavoriteListeners(document);
     renderFavoritesUI();
 
+    document.querySelectorAll(".product-gallery").forEach((gallery) => {
+        const mainImage = gallery.querySelector(".gallery-main");
+        gallery.querySelectorAll(".gallery-thumb").forEach((thumb) => {
+            thumb.addEventListener("click", () => {
+                mainImage.src = thumb.dataset.image;
+                gallery.querySelectorAll(".gallery-thumb").forEach((t) => t.classList.remove("active"));
+                thumb.classList.add("active");
+            });
+        });
+    });
+
     const navToggle = document.querySelector(".nav-toggle");
     const mainNav = document.querySelector(".main-nav");
 
