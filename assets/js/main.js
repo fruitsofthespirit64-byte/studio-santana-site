@@ -15,7 +15,7 @@ const SEARCH_INDEX = [
     { title: "Winter", url: "/seasons/winter.html", keywords: ["winter"] },
     { title: "Studio Archive", url: "/studio-archive.html", keywords: ["archive", "past", "sold", "inspiration"] },
     { title: "Our Story", url: "/our-story.html", keywords: ["about", "story", "ryin", "maker", "santana"] },
-    { title: "Shipping & Returns", url: "/shipping-returns.html", keywords: ["shipping", "returns", "policy", "pickup"] },
+    { title: "Shipping & Returns", url: "/shipping-returns.html", keywords: ["shipping", "returns", "policy", "free shipping"] },
     { title: "Privacy Policy", url: "/privacy-policy.html", keywords: ["privacy", "policy", "data"] },
 ];
 
